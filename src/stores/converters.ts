@@ -6,7 +6,7 @@ interface Converter {
   name: string
   from: string
   to: string
-  rate: number
+  convert: (amount: number) => number
   from_media?: string
   to_media?: string
 }
@@ -18,14 +18,14 @@ export const useConvertersStore = defineStore('converters', () => {
       name: 'USD en EUR',
       from: 'USD',
       to: 'EUR',
-      rate: 0.85
+      convert: (amount: number) => amount * 0.82
     },
     {
       id: '2',
       name: 'Mo en Écrevisses',
       from: 'Mo',
       to: "Jpeg d'écrevisse",
-      rate: 59,
+      convert: (amount: number) => amount * 59,
       to_media:
         'https://ibp.info6tm.fr/api/v1/files/629524948792f45b53783de4/methodes/article_small/image.jpg'
     }

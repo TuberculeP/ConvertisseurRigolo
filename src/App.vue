@@ -17,11 +17,7 @@ const onOptionSelect = (id: string) => {
 }
 
 const initialEntry = ref(0)
-const result = computed<number>(() => {
-  if (!(selectedConverter.value && initialEntry.value)) return 0
-  const { rate } = selectedConverter.value
-  return initialEntry.value * rate
-})
+const result = computed(() => selectedConverter.value?.convert(initialEntry.value))
 </script>
 
 <template>
